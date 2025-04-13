@@ -1,0 +1,52 @@
+.border{
+    border: 2px solid red;
+    margin: 3px;
+}
+
+.flex{
+    display: flex;
+}
+
+.justify-Content{
+    justify-content: center;
+}
+
+.items_center{
+    align-items: center;
+}
+
+.invert{
+    filter: invert(1);
+}
+
+.rounded{
+    border-radius: 7px;
+}
+
+.m-1{
+margin: 5px;
+}
+
+.p-1{
+    padding: 10px;
+}
+
+
+/* Apply styles to the scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Dark background for the track (part the scrollbar moves along) */
+    border-radius: 10px; /* Rounded corners for the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444; /* Darker color for the draggable part of the scrollbar */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666; /* Lighter color when the scrollbar thumb is hovered */
+}
