@@ -17,98 +17,54 @@ function secondsToMinutesSeconds(seconds) {
 }
 
 async function getSongs(folder) {
-  console.log("get songs")
   currFolder = folder;
-  let a = await fetch(`/${folder}/`);
-  console.log("get fetch a",a )
-  let response = await a.text();
-  let div = document.createElement("div");
-  div.innerHTML = response;
-  let as = div.getElementsByTagName("a");
-  console.log("get fetch",as)
-  songs = [];
-  // console.log("get songs",songs)
-  for (let index = 0; index < as.length; index++) {
-    console.log("get element")
-    const element = as[index];
-    console.log("get element",element)
-    if (element.href.endsWith(".mp3")) {
-      songs.push(element.href.split(`/${folder}/`)[1]);
-    }
-    console.log("get songs end",songs)
-  }
+  let a = await fetch(`/${folder}/info.json`);
+  let response = await a.json();
+  songs = response.songs;
 
-  // show all the songs in the playlist
-  let songUL = document
-    .querySelector(".songList")
-    .getElementsByTagName("ul")[0];
+  // Show all the songs in the playlist
+  let songUL = document.querySelector(".songList ul");
   songUL.innerHTML = "";
   for (const song of songs) {
-    songUL.innerHTML =
-      songUL.innerHTML +
-      `
-    <li> <img class="invert" src="img/music.svg" alt="music">
+    songUL.innerHTML += `
+      <li data-file="${song}">
+        <img class="invert" src="img/music.svg" alt="music">
         <div class="info">
-           <div>${decodeURIComponent(
-             song
-               // .replaceAll("_320", "")
-               .replaceAll("%20", " ")
-             // .replaceAll("(PagalWorld.com.so)", "")
-           )}
-           </div>
-           <div>Artist: Pramod</div>
-       </div>
-            <div class="playNow">
-               <span>Play Now </span>
-               <img class="invert"  src="img/play.svg" alt="">
-            </div> 
+          <div>${decodeURIComponent(song)}</div>
+          <div>Artist: Pramod</div>
+        </div>
+        <div class="playNow">
+          <span>Play Now</span>
+          <img class="invert" src="img/play.svg" alt="">
+        </div>
       </li>`;
   }
-   // Attach an event listener to each song
-   Array.from(
-    document.querySelector(".songList").getElementsByTagName("li")
-  ).forEach((e) => {
-    e.addEventListener("click", (element) => {
-      playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
-    });
 
-    // e.addEventListener("click", () => {
-    //   let songName = e
-    //     .querySelector(".info")
-    //     .firstElementChild.innerHTML.trim();
-    //   let songFile = songs.find(
-    //     (song) =>
-    //       decodeURIComponent(
-    //         song
-    //           // .replaceAll("_320", "")
-    //           .replaceAll("%20", " ")
-    //           // .replaceAll("(PagalWorld.com.so)", "")
-    //       ) === songName
-    //   );
-    //   if (songFile) {
-    //     playMusic(songFile);
-    //   }
-    // });
+  // Click listeners for songs
+  document.querySelectorAll(".songList li").forEach((e) => {
+    e.addEventListener("click", () => {
+      playMusic(e.dataset.file);
+    });
   });
+
   return songs;
 }
 
-const playMusic = (track, pause = false) => {
-  // let audio = new Audio("/songs/" + track)
-  currentSong.src = `/${currFolder}/` + track;
+
+function playMusic(songName, pause = false) {
+  if (!songName) {
+    console.error("No song name provided!");
+    return;
+  }
+  currentSong.src = `/${currFolder}/${songName}`;
   if (!pause) {
     currentSong.play();
     play.src = "img/pause.svg";
   }
-
-  document.querySelector(".songInfo").innerHTML = decodeURIComponent(
-    track
-      // .replaceAll("_320", "")
-      .replaceAll("%20", " ")
-    // .replaceAll("(PagalWorld.com.so)", "")
-  );
+  document.querySelector(".songInfo").innerHTML = decodeURIComponent(songName);
   document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
-};
+}
+
 
 async function displayAlbums() {
   let a = await fetch(`/songs/`);
