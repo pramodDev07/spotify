@@ -116,12 +116,13 @@ async function displayAlbums() {
   for (let index = 0; index < array.length; index++) {
     const e = array[index];
 
-    // console.log(e.href)
+    console.log(e.href,'he href')
     if (e.href.includes("/songs/") && !e.href.includes(".htaccess")) {
       // console.log(e.href)
       // console.log(e.href.split("/").slice(-2)[0])
       let folder = e.href.split("/").slice(-1)[0];
       // Get the metadata of the folder
+      console.log('he ncs')
       let a = await fetch(`/songs/${folder}/info.json`);
       let response = await a.json();
       // console.log(response);
@@ -152,6 +153,7 @@ async function displayAlbums() {
 
 async function main() {
   // get the list of all the songs
+  console.log("songs/ncs")
   await getSongs("songs/ncs");
   playMusic(songs[0], true);
 
