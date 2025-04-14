@@ -20,7 +20,7 @@ async function getSongs(folder) {
   console.log("get songs")
   currFolder = folder;
   let a = await fetch(`/${folder}/`);
-  console.log("get fetch")
+  console.log("get fetch a",a )
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -115,9 +115,9 @@ async function displayAlbums() {
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
-  // console.log(div);
+  console.log(div);
   let anchors = div.getElementsByTagName("a");
-  // console.log(anchors);
+  console.log(anchors);
   let cardContainer = document.querySelector(".cardContainer");
   let array = Array.from(anchors);
   for (let index = 0; index < array.length; index++) {
