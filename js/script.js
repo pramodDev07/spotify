@@ -20,10 +20,12 @@ async function getSongs(folder) {
   console.log("get songs")
   currFolder = folder;
   let a = await fetch(`/${folder}/`);
+  console.log("get fetch")
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
   let as = div.getElementsByTagName("a");
+  console.log("get fetch",as)
   songs = [];
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
