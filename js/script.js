@@ -153,9 +153,10 @@ async function displayAlbums() {
 
 async function main() {
   // get the list of all the songs
-  console.log("songs/ncs")
+  console.log("songs/ncs start")
   await getSongs("songs/ncs");
   playMusic(songs[0], true);
+  console.log("songs/ncs end")
 
   // Display all the albums on the page
   displayAlbums();
