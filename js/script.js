@@ -27,9 +27,11 @@ async function getSongs(folder) {
   let as = div.getElementsByTagName("a");
   console.log("get fetch",as)
   songs = [];
-  console.log("get songs",songs)
+  // console.log("get songs",songs)
   for (let index = 0; index < as.length; index++) {
+    console.log("get element")
     const element = as[index];
+    console.log("get element",element)
     if (element.href.endsWith(".mp3")) {
       songs.push(element.href.split(`/${folder}/`)[1]);
     }
