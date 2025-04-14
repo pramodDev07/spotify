@@ -36,78 +36,53 @@ async function getSongs(folder) {
     .querySelector(".songList")
     .getElementsByTagName("ul")[0];
   songUL.innerHTML = "";
-  // for (const song of songs) {
-  //   songUL.innerHTML =
-  //     songUL.innerHTML +
-  //     `
-  //   <li> <img class="invert" src="img/music.svg" alt="music">
-  //       <div class="info">
-  //          <div>${decodeURIComponent(
-  //            song
-  //              // .replaceAll("_320", "")
-  //              .replaceAll("%20", " ")
-  //            // .replaceAll("(PagalWorld.com.so)", "")
-  //          )}
-  //          </div>
-  //          <div>Artist: Pramod</div>
-  //      </div>
-  //           <div class="playNow">
-  //              <span>Play Now </span>
-  //              <img class="invert"  src="img/play.svg" alt="">
-  //           </div> 
-  //     </li>`;
-  // }
-   // Attach an event listener to each song
-   
-   for (const song of songs) {
-    songUL.innerHTML += `
-    <li data-file="${song}">
-      <img class="invert" src="img/music.svg" alt="music">
-      <div class="info">
-        <div>${decodeURIComponent(song.replaceAll("%20", " "))}</div>
-        <div>Artist: Pramod</div>
-      </div>
-      <div class="playNow">
-        <span>Play Now </span>
-        <img class="invert" src="img/play.svg" alt="">
-      </div> 
-    </li>`;
+  for (const song of songs) {
+    songUL.innerHTML =
+      songUL.innerHTML +
+      `
+    <li> <img class="invert" src="img/music.svg" alt="music">
+        <div class="info">
+           <div>${decodeURIComponent(
+             song
+               // .replaceAll("_320", "")
+               .replaceAll("%20", " ")
+             // .replaceAll("(PagalWorld.com.so)", "")
+           )}
+           </div>
+           <div>Artist: Pramod</div>
+       </div>
+            <div class="playNow">
+               <span>Play Now </span>
+               <img class="invert"  src="img/play.svg" alt="">
+            </div> 
+      </li>`;
   }
-
-  Array.from(
+   // Attach an event listener to each song
+   Array.from(
     document.querySelector(".songList").getElementsByTagName("li")
   ).forEach((e) => {
-    e.addEventListener("click", () => {
-      playMusic(e.dataset.file);
+    e.addEventListener("click", (element) => {
+      playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
     });
-  });
-  
-  
-  //  Array.from(
-  //   document.querySelector(".songList").getElementsByTagName("li")
-  // ).forEach((e) => {
-  //   e.addEventListener("click", (element) => {
-  //     playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
-  //   });
 
-  //   // e.addEventListener("click", () => {
-  //   //   let songName = e
-  //   //     .querySelector(".info")
-  //   //     .firstElementChild.innerHTML.trim();
-  //   //   let songFile = songs.find(
-  //   //     (song) =>
-  //   //       decodeURIComponent(
-  //   //         song
-  //   //           // .replaceAll("_320", "")
-  //   //           .replaceAll("%20", " ")
-  //   //           // .replaceAll("(PagalWorld.com.so)", "")
-  //   //       ) === songName
-  //   //   );
-  //   //   if (songFile) {
-  //   //     playMusic(songFile);
-  //   //   }
-  //   // });
-  // });
+    // e.addEventListener("click", () => {
+    //   let songName = e
+    //     .querySelector(".info")
+    //     .firstElementChild.innerHTML.trim();
+    //   let songFile = songs.find(
+    //     (song) =>
+    //       decodeURIComponent(
+    //         song
+    //           // .replaceAll("_320", "")
+    //           .replaceAll("%20", " ")
+    //           // .replaceAll("(PagalWorld.com.so)", "")
+    //       ) === songName
+    //   );
+    //   if (songFile) {
+    //     playMusic(songFile);
+    //   }
+    // });
+  });
   return songs;
 }
 
