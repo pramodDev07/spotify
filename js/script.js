@@ -25,20 +25,26 @@ async function getSongs(folder) {
   // Show all the songs in the playlist
   let songUL = document.querySelector(".songList ul");
   songUL.innerHTML = "";
+  
+  // Create list items efficiently
   for (const song of songs) {
-    songUL.innerHTML += `
-      <li data-file="${song}">
-        <img class="invert" src="img/music.svg" alt="music">
-        <div class="info">
-          <div>${decodeURIComponent(song)}</div>
-          <div>Artist: Pramod</div>
-        </div>
-        <div class="playNow">
-          <span>Play Now</span>
-          <img class="invert" src="img/play.svg" alt="">
-        </div>
-      </li>`;
+    let li = document.createElement("li");
+    li.dataset.file = song;
+  
+    li.innerHTML = `
+      <img class="invert" src="img/music.svg" alt="music">
+      <div class="info">
+        <div>${decodeURIComponent(song)}</div>
+        <div>Artist: Pramod</div>
+      </div>
+      <div class="playNow">
+        <span>Play Now</span>
+        <img class="invert" src="img/play.svg" alt="">
+      </div>`;
+  
+    songUL.appendChild(li);
   }
+  
 
   // Click listeners for songs
   document.querySelectorAll(".songList li").forEach((e) => {
