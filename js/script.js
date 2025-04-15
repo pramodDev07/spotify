@@ -110,16 +110,33 @@ async function displayAlbums() {
       </div>`;
   }
 
-  document.querySelectorAll(".card").forEach((e) => {
-    e.addEventListener("click", async () => {
-      let album = e.dataset.folder;
-      let infoRes = await fetch(`/songs/${album}/info.json`);
-      let info = await infoRes.json();
-      currFolder = `songs/${album}`;
-      songs = info.songs;
-      if (songs.length > 0) playMusic(songs[0]);
-    });
+  document.querySelector(".cardContainer").addEventListener("click", async (e) => {
+    let card = e.target.closest(".card");
+    if (card) {
+      let album = card.dataset.folder;
+      console.log("Selected album:", album);
+  
+      try {
+        let infoRes = await fetch(`/songs/${album}/info.json`);
+        if (!infoRes.ok) throw new Error(`Could not load /songs/${album}/info.json`);
+  
+        let info = await infoRes.json();
+        currFolder = `songs/${album}`;
+        songs = info.songs;
+        console.log("Songs:", songs);
+  
+        if (songs.length > 0) {
+          playMusic(songs[0]);
+        } else {
+          alert("No songs found in this album.");
+        }
+  
+      } catch (err) {
+        console.error("Error loading album:", err);
+      }
+    }
   });
+  
 }
 
 
