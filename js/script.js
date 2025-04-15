@@ -21,13 +21,14 @@ async function getSongs(folder) {
   let a = await fetch(`/${folder}/info.json`);
   let response = await a.json();
   songs = response.songs;
-
+  console.log("Songs loaded:", songs);   // ✅ add this
   // Show all the songs in the playlist
   let songUL = document.querySelector(".songList ul");
   songUL.innerHTML = "";
   
   // Create list items efficiently
   for (const song of songs) {
+    console.log("Adding song:", song);   // ✅ add this
     let li = document.createElement("li");
     li.dataset.file = song;
   
