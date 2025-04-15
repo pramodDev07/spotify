@@ -1,4 +1,10 @@
+
+
 {
     "title": "Angry Mood",
-    "description": "Calm your Anger"
-}
+    "description": "Calm your Anger",
+    "cover": "cover.jpg",
+    "songs": [
+      
+    ]
+  }

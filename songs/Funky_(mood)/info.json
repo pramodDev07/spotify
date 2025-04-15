@@ -1,4 +1,9 @@
+
 {
     "title": "Go Funky",
-    "description": "Lets go Funky"
+    "description": "Lets go Funky",
+  "cover": "cover.jpg",
+  "songs": [
+    "Gulabi Sadi_320(PagalWorld.com.so) - Copy.mp3"
+  ]
 }

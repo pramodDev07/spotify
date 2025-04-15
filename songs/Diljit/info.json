@@ -1,4 +1,9 @@
+
 {
-    "title": "Diljit Dosanjh",
-    "description": "Diljit Dosanjh hits"
+     "title": "Diljit Dosanjh",
+    "description": "Diljit Dosanjh hits",
+  "cover": "cover.jpg",
+  "songs": [
+    "Nadaniya_320(PagalWorld.com.so) - Copy (2).mp3"
+  ]
 }

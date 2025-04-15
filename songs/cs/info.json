@@ -1,4 +1,10 @@
+
 {
-    "title": "Copyright Songs",
-    "description": "Cover Songs for you"
-}
+     "title": "Copyright Songs",
+    "description": "Cover Songs for you",
+    "cover": "cover.jpg",
+    "songs": [
+      "Gulabi Sadi_320(PagalWorld.com.so).mp3",
+      "Nadaniya_320(PagalWorld.com.so) - Copy (2).mp3"
+    ]
+  }

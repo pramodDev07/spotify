@@ -1,4 +1,12 @@
+
+
 {
     "title": "Get up",
-    "description": "You can do it!"
-}
+    "description": "You can do it!",
+    "cover": "cover.jpg",
+    "songs": [
+      "Elevated_320(PagalWorld.com.so) - Copy (3).mp3",
+      "Eshay_320(PagalWorld.com.so) - Copy (3).mp3",
+      "Nadaniya_320(PagalWorld.com.so) - Copy.mp3"
+    ]
+  }
