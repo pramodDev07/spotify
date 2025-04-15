@@ -118,14 +118,10 @@ async function displayAlbums() {
       console.log("Selected album:", album);
   
       try {
-        let infoRes = await fetch(`/songs/${album}/info.json`);
-        if (!infoRes.ok) throw new Error(`Could not load /songs/${album}/info.json`);
+        // ✅ Load and display songs in songList ul
+        await getSongs(`songs/${album}`);
   
-        let info = await infoRes.json();
-        currFolder = `songs/${album}`;
-        songs = info.songs;
-        console.log("Songs:", songs);
-  
+        // ✅ Play the first song
         if (songs.length > 0) {
           playMusic(songs[0]);
         } else {
@@ -137,6 +133,7 @@ async function displayAlbums() {
       }
     }
   });
+  
   
 }
 
