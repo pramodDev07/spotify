@@ -56,14 +56,26 @@ function playMusic(songName, pause = false) {
     console.error("No song name provided!");
     return;
   }
+
+  // Pause and reset the previous song if playing
+  currentSong.pause();
+  currentSong.currentTime = 0;
+
+  // Set new source
   currentSong.src = `/${currFolder}/${songName}`;
+
+  // Start playing if not paused
   if (!pause) {
-    currentSong.play();
+    currentSong.play().catch((err) => {
+      console.warn("play() interrupted:", err);
+    });
     play.src = "img/pause.svg";
   }
+
   document.querySelector(".songInfo").innerHTML = decodeURIComponent(songName);
   document.querySelector(".songTime").innerHTML = "00:00 / 00:00";
 }
+
 
 
 
