@@ -1,11 +1,11 @@
+
 {
+    "title": "Sleep Songs",
+    "description": "Songs for you",
+    "cover": "cover.jpg",
     "songs": [
       "Elevated_320(PagalWorld.com.so) - Copy (2).mp3",
       "Gulabi Sadi_320(PagalWorld.com.so) - Copy (2).mp3"
-    ],
-    "albums": [
-        "ncs"
-      ],
-    "title": "Sleep Songs",
-    "description": "Songs for you"
-}
+    ]
+  }
+  
