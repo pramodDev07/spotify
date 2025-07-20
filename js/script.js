@@ -21,14 +21,13 @@ async function getSongs(folder) {
   let a = await fetch(`/${folder}/info.json`);
   let response = await a.json();
   songs = response.songs;
-  console.log("Songs loaded:", songs);   // ✅ add this
   // Show all the songs in the playlist
   let songUL = document.querySelector(".songList ul");
   songUL.innerHTML = "";
   
   // Create list items efficiently
   for (const song of songs) {
-    console.log("Adding song:", song);   // ✅ add this
+  //"Adding song:", song ✅ add this
     let li = document.createElement("li");
     li.dataset.file = song;
   
@@ -115,7 +114,6 @@ async function displayAlbums() {
     let card = e.target.closest(".card");
     if (card) {
       let album = card.dataset.folder;
-      console.log("Selected album:", album);
   
       try {
         // ✅ Load and display songs in songList ul
@@ -140,10 +138,8 @@ async function displayAlbums() {
 
 async function main() {
   // get the list of all the songs
-  console.log("songs/ncs start")
   await getSongs("songs/ncs");
   playMusic(songs[0], true);
-  console.log("songs/ncs end")
 
   // Display all the albums on the page
   displayAlbums();
@@ -188,24 +184,33 @@ async function main() {
   });
 
   // Add an event listener to previous
-  previous.addEventListener("click", () => {
-    console.log("previous checked");
-    currentSong.pause();
-    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-    if (index - 1 >= 0) {
-      playMusic(songs[index - 1]);
-    }
-  });
+ previous.addEventListener("click", () => {
+  currentSong.pause();
+  const currentFile = decodeURIComponent(currentSong.src.split("/").pop());
+  const index = songs.indexOf(currentFile);
+
+  if (index !== -1) {
+    const prevIndex = (index - 1 + songs.length) % songs.length; // ✅ this wraps around
+    playMusic(songs[prevIndex]);
+  } else {
+    console.warn("Current song not found in songs list.");
+  }
+});
 
   // Add an event listener to next
   next.addEventListener("click", () => {
-    console.log("next checked");
-    currentSong.pause();
-    let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-    if (index + 1 < songs.length) {
-      playMusic(songs[index + 1]);
-    }
-  });
+  currentSong.pause();
+  const currentFile = decodeURIComponent(currentSong.src.split("/").pop());
+  const index = songs.indexOf(currentFile);
+
+  if (index !== -1) {
+    const nextIndex = (index + 1) % songs.length;
+    playMusic(songs[nextIndex]);
+  } else {
+    console.warn("Current song not found in songs list.");
+  }
+});
+
 
   // Add an event listener to volume
   document
