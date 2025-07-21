@@ -1,10 +1,19 @@
-
 {
-     "title": "Copyright Songs",
-    "description": "Cover Songs for you",
-    "cover": "cover.jpg",
-    "songs": [
-      "Gulabi Sadi_320(PagalWorld.com.so).mp3",
-      "Nadaniya_320(PagalWorld.com.so) - Copy (2).mp3"
-    ]
-  }
+  "title": "Copyright Songs",
+  "description": "Cover Songs for you",
+  "cover": "cover.jpg",
+  "songs": [
+    "Gulabi Sadi_320(PagalWorld.com.so).mp3",
+    "Nadaniya_320(PagalWorld.com.so) - Copy (2).mp3",
+    "Full Song_Tera Ban Jaunga _ Kabir Singh _ Shahid K_ Kiara A_ Sandeep V _ Tulsi Kumar_ Akhil Sachdeva(M4A_128K).m4a",
+    "Full Video _Tum Mere Ho Song _ Hate Story IV _ Vivan Bhathena Ihana Dhillon _Mithoon Jubin N Manoj M(M4A_128K).m4a",
+    "Full Video_ CHALE AANA _ De De Pyaar De I Ajay Devgn_ Tabu_ Rakul Preet l Armaan M_ Amaal M_Kunaal V(M4A_128K).m4a",
+    "Full Video_ Enni Soni _ Saaho _ Prabhas_ Shraddha Kapoor _ Guru Randhawa_ Tulsi Kumar(M4A_128K).m4a",
+    "Full Video_ Laila Song _ Zaheer Iqbal _ Pranutan Bahl _ Dhvani Bhanushali _ Vishal Mishra(M4A_128K).m4a",
+    "Full Video_ Lo Safar Song _ Baaghi 2 _ Tiger Shroff _ Disha P _ Mithoon _ Jubin N _ Ahmed K _Sajid N(M4A_128K).m4a",
+    "Full Video_ NAAD KHULA _ Malaal _ Sharmin Segal _ Meezaan _ Shreyas Puranik(M4A_128K).m4a",
+    "Full Video_ Naina Lade _ Dabangg 3 _ Salman Khan_ Saiee Manjrekar _ Javed Ali _ Sajid Wajid(M4A_128K).m4a",
+    "Full Video_ Nazar Na Lag Jaaye _ STREE _ Rajkummar Rao_ Shraddha Kapoor _ Ash King _ Sachin-Jigar(M4A_128K).m4a",
+    "Full Video_ Tum Se Hi _ Jab We Met _ Kareena Kapoor_ Shahid Kapoor _ Mohit Chauhan _ Pritam(M4A_128K).m4a"
+  ]
+}
