@@ -83,8 +83,10 @@ body {
         gap: 13px;
         font-size: 10px;
         color: gray;
+        background-color: #121212;
         position: absolute;
         bottom: 0;
+        /* height: 10px; */
         padding: 10px 5px;
         /* height: 5vh; */
 }
