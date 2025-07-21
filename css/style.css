@@ -83,7 +83,7 @@ body {
         gap: 13px;
         font-size: 10px;
         color: gray;
-        /* position: absolute; */
+        position: absolute;
         bottom: 0;
         padding: 10px 5px;
         /* height: 5vh; */
@@ -485,7 +485,7 @@ border-radius: 5px;
     }
 
  .songList{
-    height: 100vh;
+    /* height: 100vh; */
  }
 
     
